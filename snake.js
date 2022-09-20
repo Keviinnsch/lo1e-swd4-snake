@@ -14,7 +14,7 @@ function drawBackground() {
 
 // Draw the snake
 function drawSnake() {
-    context.fillStyle = "white";
+    context.fillStyle = "Red";
     context.fillRect(snakeX, snakeY, 20, 20);
 }
 
