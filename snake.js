@@ -3,6 +3,10 @@ let ctx = canvas.getContext("2d");
 
 let snakeX = 200;
 let snakeY = 200;
+
+let foodX;
+let foodY;
+
 let direction = null;
 
 function drawBackground() {
@@ -12,7 +16,7 @@ ctx.fillRect(0, 0, 400, 400);
 
 
 function drawSnake(){
-ctx.fillStyle = "Red";
+ctx.fillStyle = "green";
 ctx.fillRect(snakeX, snakeY, 20, 20)
 }
 
@@ -45,6 +49,7 @@ function update() {
     }
     drawBackground();
     drawSnake();
+    drawFood();
 }
 
 function changeDirection(event) {
@@ -68,8 +73,20 @@ function gameOver() {
     alert("Game Over!")
 }
 
+function spawnFood() {
+    Foodx = math.floor(math.random() * 20) * 20;
+    Foody = math.floor(math.random() * 20) * 20;
+}
+
+
+function drawFood() {
+    ctx.fillStyle = "red";
+    ctx.fillRect(foodX, foodY, 20, 20);
+}
+
 drawBackground();
 drawSnake();
-
 setInterval(update, 200);
 addEventListener('keydown', changeDirection)
+
+spawnFood();
